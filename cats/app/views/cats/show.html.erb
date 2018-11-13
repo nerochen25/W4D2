@@ -1,0 +1,37 @@
+<h1>Meet this cat!</h1>
+<br>
+<a href="<%= edit_cat_url(@cat) %>">Edit this cat!</a>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2"><%= @cat.name %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Birth Date</td>
+            <td><%= @cat.birth_date.strftime('%a %d %b %Y') %></td>
+        </tr>
+
+        <tr>
+            <td>Color</td>
+            <td><%= @cat.color %></td>
+        </tr>
+
+        <tr>
+            <td>Age</td>
+            <td><%= @cat.age %></td>
+        </tr>
+
+        <tr>
+            <td>Sex</td>
+            <td><%= @cat.sex %></td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td><%= @cat.description %></td>
+        </tr>
+
+    </tbody>
+</table>
