@@ -3,19 +3,23 @@ class Cat < ApplicationRecord
   validates :color,
     presence: true,
     inclusion: COLORS
-  
-  SEX = ['M', 'F']  
+
+  SEX = ['M', 'F']
   validates :sex,
     presence: true,
     inclusion: SEX
-  
+
   validates :name,
-    presence: true 
+    presence: true
 
   validates :birth_date,
     presence: true
-    
-    
+
+  has_many :rental_requests,
+  foreign_key: :cat_id,
+  class_name: :CatRentalRequest,
+  dependent: :destroy
+
   def age
     now = Time.now.utc.to_date
     if now.month > self.birth_date.month

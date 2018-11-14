@@ -1,6 +1,5 @@
 <h1>Meet this cat!</h1>
 <br>
-<a href="<%= edit_cat_url(@cat) %>">Edit this cat!</a>
 <table>
     <thead>
         <tr>
@@ -35,3 +34,21 @@
 
     </tbody>
 </table>
+<br>
+
+<a href="<%= edit_cat_url(@cat) %>">Edit this cat!</a>
+<br>
+
+<br>
+<h2>Existing Requests!</h2>
+<% requests = CatRentalRequest.where(cat_id: @cat.id) %>
+<% requests.each do |request| %>
+<br>
+Start:
+  <%= request.start_date.strftime('%a %d %b %Y') %>
+  <br>
+End:
+  <%= request.end_date.strftime('%a %d %b %Y') %>
+<br>
+
+<% end %>
